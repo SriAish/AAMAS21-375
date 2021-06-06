@@ -69,6 +69,156 @@ class ActionMapping:
     }
 
 
+class HierarchicalQAgent-adversial(PacmanQAgent):
+    def __init__(self, extractor='IdentityExtractor', **args):
+        PacmanQAgent.__init__(self, **args)
+        self.nb_foodFeatures = 10
+        self.nb_ghostFeatures = 9
+        self.nb_actions = 5
+        self.nb_features = 13
+        self.epsilon = 1
+        self.min_epsilon = 0.01
+        self.decay = .999
+        self.arbitratorDecay = .9995
+        self.arbitratorEpsilon = 1
+        self.ghostAgent = DqnModule(nb_features = self.nb_ghostFeatures, featureExtractor = CustomizedExtractor().getGhostFeatures)
+        self.foodAgent = DqnModule(nb_features = self.nb_foodFeatures, featureExtractor = CustomizedExtractor().getFoodFeatures)
+        self.arbitrator = DqnModule(nb_features = self.nb_features, featureExtractor = CustomizedExtractor().getFeatures, nb_actions = 2)
+        self.subModules = [self.ghostAgent, self.foodAgent]
+        self.lastSavedWeights = -1
+        # self.foodAgent.model = self.loadModel(name)
+        # self.ghostAgent.model = self.loadModel(name)
+        self.isSaved = 0
+        print '----------'
+        print '############ HierarchicalQAgent ############'
+        print 'Epsilon Decay = %f, Arbitrator Epsilon Decay = %f, Discount Factor = %.2f' % (self.decay, self.arbitratorDecay, self.discount)
+        print 'Feature Count: Arbitrator = %d, Ghost = %d, Food = %d' % (self.nb_features, self.nb_ghostFeatures, self.nb_foodFeatures)
+        print 'Rewards for Arbitrator: (Eat ghost) = %.2f, (Eat Food) = %.2f, (Death Penalty) = %.2f, (Time Penalty) = %.2f' % \
+        (self.getArbitratorReward(50), self.getArbitratorReward(10), self.getArbitratorReward(-500), self.getArbitratorReward(-1))
+        print 'Rewards for foodAgent: Time Penalty = %.2f, (Food Reward + Time Penalty) = %.2f, \
+        (Food Reward + Time Penalty + LastReward) = %.2f' % (self.getFoodReward(TIME_PENALTY), \
+        self.getFoodReward(TIME_PENALTY + FOOD_REWARD), self.getFoodReward(TIME_PENALTY + FOOD_REWARD + EAT_ALL_FOOD_REWARD))
+        print 'Rewards for ghostAgent: Time Penalty = %.2f, (Death Penalty) = %.2f' % (self.getGhostReward(TIME_PENALTY), \
+        self.getGhostReward(TIME_PENALTY + DIE_PENALTY))
+        print '----------'
+
+
+    def computeActionFromQValues(self, state):
+        # legalActions = self.getLegalActions(state)
+        if np.random.rand() < self.arbitratorEpsilon:
+            self.arbitratorAction = random.randrange(2)
+        else:
+            self.arbitratorAction = self.arbitrator.getAction(state, [0, 1])
+
+        legalActions = [ActionMapping.ActionToNumber[action] for action in self.getLegalActions(state)]
+
+        action = self.subModules[self.arbitratorAction].getAction(state, legalActions)
+
+
+        return ActionMapping.NumbertoAction[action]
+
+    def getFoodReward(self, reward):
+        MODIFIED_TIME_PENALTY = -10. # Number of points lost each round
+        MODIFIED_FOOD_REWARD = 10
+        MODIFIED_EAT_ALL_FOOD_REWARD = 50
+        # MODIFIED_PUDDLE_PENALTY = 10
+
+        if reward == TIME_PENALTY:
+            reward = MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + FOOD_REWARD:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_FOOD_REWARD
+        elif reward == TIME_PENALTY + DIE_PENALTY:
+            reward = MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + EAT_ALL_FOOD_REWARD + FOOD_REWARD:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_EAT_ALL_FOOD_REWARD + MODIFIED_FOOD_REWARD
+        elif reward == TIME_PENALTY + DIE_PENALTY + FOOD_REWARD:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_FOOD_REWARD
+
+        elif reward == TIME_PENALTY + PUDDLE_PENALTY:
+            reward = MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + DIE_PENALTY + PUDDLE_PENALTY:
+            reward = MODIFIED_TIME_PENALTY
+
+        return reward / 10.0
+
+    def getGhostReward(self, reward):
+        MODIFIED_TIME_PENALTY = -1 # Number of points lost each round
+        MODIFIED_DIE_PENALTY = -20
+
+        if reward == TIME_PENALTY:
+            reward = -MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + FOOD_REWARD:
+            reward = -MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + DIE_PENALTY:
+            reward = MODIFIED_DIE_PENALTY
+        elif reward == TIME_PENALTY + EAT_ALL_FOOD_REWARD + FOOD_REWARD:
+            reward = -MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + DIE_PENALTY + FOOD_REWARD:
+            reward = MODIFIED_DIE_PENALTY
+
+        elif reward == TIME_PENALTY + PUDDLE_PENALTY:
+            reward = -MODIFIED_TIME_PENALTY
+        elif reward == TIME_PENALTY + DIE_PENALTY + PUDDLE_PENALTY:
+            reward = MODIFIED_DIE_PENALTY
+
+        return reward / 10.0
+
+    def getArbitratorReward(self, reward):
+
+        MODIFIED_TIME_PENALTY = -10. # Number of points lost each round
+        MODIFIED_FOOD_REWARD = 10
+        MODIFIED_EAT_ALL_FOOD_REWARD = 50
+        MODIFIED_DIE_PENALTY = -20
+
+        if reward == TIME_PENALTY:
+            reward = MODIFIED_TIME_PENALTY
+        if reward == TIME_PENALTY + FOOD_REWARD:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_FOOD_REWARD
+        if reward == TIME_PENALTY + DIE_PENALTY:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_DIE_PENALTY
+        if reward == TIME_PENALTY + EAT_ALL_FOOD_REWARD + FOOD_REWARD:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_EAT_ALL_FOOD_REWARD + MODIFIED_FOOD_REWARD
+        if reward == TIME_PENALTY + DIE_PENALTY + FOOD_REWARD:
+            reward = MODIFIED_TIME_PENALTY + MODIFIED_FOOD_REWARD + MODIFIED_DIE_PENALTY
+
+        return reward / 10.0
+
+    def saveModel(self, model, file_name):
+        model_json = model.to_json()
+        with open('weights/' + file_name + '.json', "w") as json_file:
+            json_file.write(model_json)
+        model.save_weights('weights/' + file_name + '.h5')
+
+    def loadModel(self, file_name):
+        json_file = open('weights/' + file_name + '.json', 'r')
+        loaded_model_json = json_file.read()
+        json_file.close()
+        loaded_model = model_from_json(loaded_model_json)
+        loaded_model.load_weights('weights/' + file_name + '.h5')
+        return loaded_model
+
+    def update(self, state, action, nextState, reward):
+        if self.selfTesting and self.currentTrainingEpisode > self.lastSavedWeights:
+            self.saveModel(self.ghostAgent.model, 'ghostAgent_' + identifier + '_' + str(self.currentTrainingEpisode))
+            self.saveModel(self.foodAgent.model, 'foodAgent_' + identifier + '_' + str(self.currentTrainingEpisode))
+            self.saveModel(self.arbitrator.model, 'arbitrator_' + identifier + '_' + str(self.currentTrainingEpisode))
+            self.lastSavedWeights = self.currentTrainingEpisode
+        if self.alpha < 0.0001:
+            return
+        if self.epsilon > self.min_epsilon:
+            self.epsilon = self.epsilon * self.decay
+
+        if self.arbitratorEpsilon > self.min_epsilon:
+            self.arbitratorEpsilon = self.arbitratorEpsilon * self.arbitratorDecay
+
+        done = 1 if abs(reward) > 100 else 0
+        # if done:
+        #     print '------------------------------------------------------------'
+
+        self.arbitrator.update(state, self.arbitratorAction, nextState, self.getArbitratorReward(reward), done)
+        self.ghostAgent.update(state, ActionMapping.ActionToNumber[action], nextState, self.getGhostReward(reward), done)
+        self.foodAgent.update(state, ActionMapping.ActionToNumber[action], nextState, self.getFoodReward(reward), done)
+
 class QLearningAgent(ReinforcementAgent):
     """
       Q-Learning Agent
