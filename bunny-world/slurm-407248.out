@@ -1,0 +1,78 @@
+==========================================
+SLURM_JOB_ID = 407248
+SLURM_NODELIST = gnode84
+SLURM_JOB_GPUS = 2
+==========================================
+/var/spool/slurmd/job407248/slurm_script: line 9: /home/sriaish/keras/bin/activate: No such file or directory
+Using TensorFlow backend.
+/home/sriaish/.local/lib/python2.7/site-packages/requests/__init__.py:83: RequestsDependencyWarning: Old version of cryptography ([1, 2, 3]) may cause slowdown.
+  warnings.warn(warning, RequestsDependencyWarning)
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2743: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, kernel_initializer="lecun_uniform", input_shape=(9,))`
+  self.model.add(Dense(64, init='lecun_uniform', input_shape=(self.input_size,)))
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2746: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, kernel_initializer="lecun_uniform")`
+  self.model.add(Dense(64, init='lecun_uniform'))
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2749: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(32, kernel_initializer="lecun_uniform")`
+  self.model.add(Dense(32, init='lecun_uniform'))
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2752: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(5, kernel_initializer="lecun_uniform")`
+  self.model.add(Dense(self.nb_actions, init='lecun_uniform'))
+----------
+### DqnModule ###
+Epsilon Decay = 0.9995, Discount Factor = 0.80
+Input Features = 9
+----------
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2743: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, kernel_initializer="lecun_uniform", input_shape=(10,))`
+  self.model.add(Dense(64, init='lecun_uniform', input_shape=(self.input_size,)))
+----------
+### DqnModule ###
+Epsilon Decay = 0.9995, Discount Factor = 0.80
+Input Features = 10
+----------
+2021-06-07 14:52:34.828860: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+----------
+### DDPG Module ###
+Epsilon Decay = 0.999, Discount Factor = 0.80, alpha = 0.000500
+Input Features = 13
+----------
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2226: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Tensor("de..., inputs=Tensor("in...)`
+  model = Model(input=state_input, output=output)
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2242: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Tensor("de..., inputs=[<tf.Tenso...)`
+  model = Model(input=[state_input,action_input], output=output)
+WARNING:tensorflow:From /home/sriaish/.local/lib/python2.7/site-packages/tensorflow/python/util/tf_should_use.py:118: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+----------
+############ HierarchicalDDPGAgent ############
+Arbitrator Epsilon Decay = 0.999000, Discount Factor = 0.80
+Feature Count: Arbitrator = 13, Ghost = 9, Food = 10
+Rewards for Arbitrator: (Eat ghost) = 5.00, (Eat Food) = 1.00, (Death Penalty) = -50.00, (Time Penalty) = -0.10
+Rewards for foodAgent: Time Penalty = -1.00, (Food Reward + Time Penalty) = 0.00,         (Food Reward + Time Penalty + LastReward) = 0.00
+Rewards for ghostAgent: Time Penalty = 0.10, (Death Penalty) = -2.00
+----------
+----------
+NumGames = 2050, Testing = 50, Layout = smallInitialGrid
+----------
+Beginning 2000 episodes of Training
+Pacman died! Score: 27
+Pacman died! Score: 3
+Pacman died! Score: 7
+Pacman died! Score: 7
+Testing at 3 [44.0, -20.0, 0.0, 9.0, -6.0, -17.0, 20.0, 2.0, 30.0, -18.0] Won 0
+[4.4]
+[0]
+Pacman died! Score: -13
+Pacman died! Score: -10
+Pacman died! Score: -11
+Testing at 6 [-2.0, -5.0, 34.0, 6.0, 48.0, 47.0, 2.0, -25.0, 10.0, -2.0] Won 0
+[4.4, 11.3]
+[0, 0]
+Pacman died! Score: 51
+Pacman died! Score: 2
+Pacman died! Score: 5
+Reinforcement Learning Status:
+	Completed 10 out of 2000 training episodes
+	Average Rewards over all training: 6.80
+	Average Rewards for last 10 episodes: 6.80
+	Episode took 4.12 seconds
+Training:  [6.8]
+Total Training steps so far:  72
+slurmstepd: error: *** JOB 407248 ON gnode84 CANCELLED AT 2021-06-07T14:52:40 ***
