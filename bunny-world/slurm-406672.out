@@ -1,0 +1,438 @@
+==========================================
+SLURM_JOB_ID = 406672
+SLURM_NODELIST = gnode55
+SLURM_JOB_GPUS = 2
+==========================================
+/var/spool/slurmd/job406672/slurm_script: line 9: /home/sriaish/keras/bin/activate: No such file or directory
+Using TensorFlow backend.
+/home/sriaish/.local/lib/python2.7/site-packages/requests/__init__.py:83: RequestsDependencyWarning: Old version of cryptography ([1, 2, 3]) may cause slowdown.
+  warnings.warn(warning, RequestsDependencyWarning)
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2743: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, kernel_initializer="lecun_uniform", input_shape=(9,))`
+  self.model.add(Dense(64, init='lecun_uniform', input_shape=(self.input_size,)))
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2746: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, kernel_initializer="lecun_uniform")`
+  self.model.add(Dense(64, init='lecun_uniform'))
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2749: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(32, kernel_initializer="lecun_uniform")`
+  self.model.add(Dense(32, init='lecun_uniform'))
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2752: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(5, kernel_initializer="lecun_uniform")`
+  self.model.add(Dense(self.nb_actions, init='lecun_uniform'))
+----------
+### DqnModule ###
+Epsilon Decay = 0.9995, Discount Factor = 0.80
+Input Features = 9
+----------
+----------
+### DqnModule ###
+Epsilon Decay = 0.9995, Discount Factor = 0.80
+Input Features = 9
+----------
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2743: UserWarning: Update your `Dense` call to the Keras 2 API: `Dense(64, kernel_initializer="lecun_uniform", input_shape=(10,))`
+  self.model.add(Dense(64, init='lecun_uniform', input_shape=(self.input_size,)))
+----------
+### DqnModule ###
+Epsilon Decay = 0.9995, Discount Factor = 0.80
+Input Features = 10
+----------
+2021-06-06 18:16:49.157841: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+----------
+### DDPG Module ###
+Epsilon Decay = 0.999, Discount Factor = 0.80, alpha = 0.000500
+Input Features = 13
+----------
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2226: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Tensor("de..., inputs=Tensor("in...)`
+  model = Model(input=state_input, output=output)
+/home/sriaish/AAMAS21-375/bunny-world/qlearningAgents.py:2242: UserWarning: Update your `Model` call to the Keras 2 API: `Model(outputs=Tensor("de..., inputs=[<tf.Tenso...)`
+  model = Model(input=[state_input,action_input], output=output)
+WARNING:tensorflow:From /home/sriaish/.local/lib/python2.7/site-packages/tensorflow/python/util/tf_should_use.py:118: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+----------
+############ HierarchicalDDPGAgentAdv ############
+Arbitrator Epsilon Decay = 0.999000, Discount Factor = 0.80
+Feature Count: Arbitrator = 13, Ghost = 9, Food = 10
+Rewards for Arbitrator: (Eat ghost) = 5.00, (Eat Food) = 1.00, (Death Penalty) = -50.00, (Time Penalty) = -0.10
+Rewards for foodAgent: Time Penalty = -1.00, (Food Reward + Time Penalty) = 0.00,         (Food Reward + Time Penalty + LastReward) = 0.00
+Rewards for ghostAgent: Time Penalty = 0.10, (Death Penalty) = -2.00
+----------
+----------
+NumGames = 2050, Testing = 50, Layout = smallInitialGrid
+----------
+Beginning 2000 episodes of Training
+Pacman died! Score: 14
+Pacman died! Score: 22
+Pacman died! Score: 10
+Pacman died! Score: 12
+Testing at 3 [-11.0, 33.0, 6.0, 18.0, 30.0, -6.0, 41.0, 5.0, -18.0, -11.0] Won 0
+[8.7]
+[0]
+Pacman died! Score: -7
+Pacman died! Score: 12
+Pacman died! Score: 32
+Testing at 6 [-5.0, 2.0, 6.0, 38.0, -9.0, 7.0, -6.0, -5.0, 22.0, 11.0] Won 0
+[8.7, 6.1]
+[0, 0]
+Pacman died! Score: -5
+Pacman died! Score: 5
+Pacman died! Score: 104
+Reinforcement Learning Status:
+	Completed 10 out of 2000 training episodes
+	Average Rewards over all training: 19.90
+	Average Rewards for last 10 episodes: 19.90
+	Episode took 6.35 seconds
+Training:  [19.9]
+Total Training steps so far:  101
+Testing at 9 [121.0, 7.0, 63.0, 40.0, 43.0, -25.0, 6.0, 22.0, 113.0, 21.0] Won 0
+[8.7, 6.1, 41.1]
+[0, 0, 0]
+Pacman died! Score: 7
+Pacman died! Score: 39
+Pacman died! Score: 114
+Testing at 12 [61.0, 44.0, 85.0, 122.0, 44.0, 58.0, 0.0, 135.0, 71.0, 45.0] Won 0
+[8.7, 6.1, 41.1, 66.5]
+[0, 0, 0, 0]
+Pacman died! Score: 22
+Pacman died! Score: 79
+Pacman died! Score: 73
+Testing at 15 [40.0, 40.0, 70.0, -3.0, 80.0, 34.0, 25.0, 96.0, 132.0, 38.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2]
+[0, 0, 0, 0, 0]
+Pacman died! Score: 15
+Pacman died! Score: 30
+Pacman died! Score: -21
+Testing at 18 [174.0, 172.0, 8.0, 50.0, 25.0, 144.0, -10.0, 49.0, 210.0, 28.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0]
+[0, 0, 0, 0, 0, 0]
+Pacman died! Score: -20
+Reinforcement Learning Status:
+	Completed 20 out of 2000 training episodes
+	Average Rewards over all training: 26.85
+	Average Rewards for last 10 episodes: 33.80
+	Episode took 11.23 seconds
+Training:  [19.9, 33.8]
+Total Training steps so far:  223
+Pacman died! Score: 22
+Pacman died! Score: 159
+Testing at 21 [38.0, 20.0, 106.0, 0.0, 10.0, 10.0, -20.0, -11.0, -8.0, 96.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1]
+[0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: -12
+Pacman died! Score: 43
+Pacman died! Score: 15
+Testing at 24 [22.0, 142.0, 108.0, 136.0, 22.0, 45.0, 38.0, 208.0, 18.0, 20.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9]
+[0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: -11
+Pacman died! Score: 58
+Pacman died! Score: 76
+Testing at 27 [8.0, 11.0, 8.0, 40.0, 44.0, 108.0, -2.0, 60.0, 28.0, 58.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3]
+[0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 40
+Pacman died! Score: 47
+Reinforcement Learning Status:
+	Completed 30 out of 2000 training episodes
+	Average Rewards over all training: 32.47
+	Average Rewards for last 10 episodes: 43.70
+	Episode took 9.75 seconds
+Training:  [19.9, 33.8, 43.7]
+Total Training steps so far:  366
+Pacman died! Score: 12
+Testing at 30 [50.0, 86.0, 48.0, 26.0, 6.0, 58.0, 13.0, 37.0, 11.0, 6.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 42
+Pacman died! Score: 90
+Pacman died! Score: -1
+Testing at 33 [28.0, 26.0, 163.0, 140.0, 68.0, 102.0, 10.0, 108.0, 120.0, 9.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 44
+Pacman died! Score: 69
+Pacman died! Score: 20
+Testing at 36 [48.0, 152.0, 171.0, 10.0, 9.0, 9.0, 14.0, -1.0, 21.0, 18.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 130
+Pacman died! Score: 44
+Pacman died! Score: 13
+Reinforcement Learning Status:
+	Completed 40 out of 2000 training episodes
+	Average Rewards over all training: 35.92
+	Average Rewards for last 10 episodes: 46.30
+	Episode took 10.35 seconds
+Training:  [19.9, 33.8, 43.7, 46.3]
+Total Training steps so far:  543
+Testing at 39 [236.0, 49.0, 107.0, -2.0, 101.0, 52.0, 51.0, 41.0, 56.0, 1.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 127
+Pacman died! Score: -3
+Pacman died! Score: 439
+Testing at 42 [39.0, 181.0, 46.0, 265.0, 11.0, 51.0, 29.0, 33.0, 49.0, 78.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 89
+Pacman died! Score: 21
+Pacman died! Score: 22
+Testing at 45 [50.0, 7.0, 197.0, -1.0, 41.0, 121.0, 46.0, -2.0, 125.0, 261.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 92
+Pacman died! Score: 78
+Pacman died! Score: 40
+Testing at 48 [83.0, -12.0, 32.0, 61.0, 145.0, 36.0, 5.0, 253.0, 156.0, 14.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 5
+Reinforcement Learning Status:
+	Completed 50 out of 2000 training episodes
+	Average Rewards over all training: 46.94
+	Average Rewards for last 10 episodes: 91.00
+	Episode took 15.30 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0]
+Total Training steps so far:  753
+Pacman died! Score: 58
+Pacman died! Score: 17
+Testing at 51 [25.0, -7.0, 61.0, 0.0, 244.0, 29.0, 23.0, 126.0, 53.0, 17.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 30
+Pacman died! Score: 28
+Pacman died! Score: 68
+Testing at 54 [17.0, 55.0, 237.0, 39.0, 158.0, 12.0, 9.0, 0.0, 164.0, 19.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 31
+Pacman died! Score: -10
+Pacman died! Score: 28
+Testing at 57 [59.0, 171.0, 142.0, 11.0, 11.0, 300.0, 90.0, 161.0, 92.0, 31.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 9
+Pacman died! Score: 49
+Reinforcement Learning Status:
+	Completed 60 out of 2000 training episodes
+	Average Rewards over all training: 44.25
+	Average Rewards for last 10 episodes: 30.80
+	Episode took 11.04 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8]
+Total Training steps so far:  875
+Pacman died! Score: 38
+Testing at 60 [56.0, 54.0, 117.0, 69.0, 169.0, 59.0, 187.0, 294.0, 45.0, 48.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 5
+Pacman died! Score: 25
+Pacman died! Score: 15
+Testing at 63 [20.0, 50.0, 40.0, -1.0, 29.0, 137.0, 164.0, 153.0, 196.0, 95.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 125
+Pacman died! Score: 43
+Pacman died! Score: 162
+Testing at 66 [38.0, 39.0, 167.0, 18.0, 67.0, 29.0, 9.0, 177.0, 69.0, 188.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 12
+Pacman died! Score: 56
+Pacman died! Score: -2
+Reinforcement Learning Status:
+	Completed 70 out of 2000 training episodes
+	Average Rewards over all training: 44.77
+	Average Rewards for last 10 episodes: 47.90
+	Episode took 11.43 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9]
+Total Training steps so far:  1056
+Testing at 69 [64.0, 49.0, 165.0, -3.0, 237.0, 192.0, 51.0, 69.0, 25.0, 90.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 14
+Pacman died! Score: 41
+Pacman died! Score: 5
+Testing at 72 [-1.0, 68.0, 58.0, 88.0, 186.0, 91.0, 96.0, 6.0, 289.0, 79.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 83
+Pacman died! Score: -12
+Pacman died! Score: 86
+Testing at 75 [195.0, 71.0, 57.0, 130.0, 28.0, 102.0, 49.0, 39.0, 49.0, 77.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 127
+Pacman died! Score: 77
+Pacman died! Score: 166
+Testing at 78 [91.0, 68.0, 64.0, 86.0, 77.0, 73.0, 45.0, 130.0, 45.0, 46.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 309
+Reinforcement Learning Status:
+	Completed 80 out of 2000 training episodes
+	Average Rewards over all training: 50.38
+	Average Rewards for last 10 episodes: 89.60
+	Episode took 15.39 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6]
+Total Training steps so far:  1290
+Pacman died! Score: 204
+Pacman died! Score: 28
+Testing at 81 [69.0, 233.0, 42.0, 85.0, -2.0, 109.0, 84.0, 83.0, 11.0, 5.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 97
+Pacman died! Score: 68
+Pacman died! Score: 28
+Testing at 84 [10.0, 83.0, 162.0, 10.0, 191.0, 28.0, 47.0, -11.0, 37.0, 59.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 58
+Pacman died! Score: 10
+Pacman died! Score: 178
+Testing at 87 [95.0, 30.0, 1.0, 165.0, 37.0, 7.0, 67.0, 372.0, 63.0, 75.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 110
+Pacman died! Score: 221
+Reinforcement Learning Status:
+	Completed 90 out of 2000 training episodes
+	Average Rewards over all training: 55.91
+	Average Rewards for last 10 episodes: 100.20
+	Episode took 12.19 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6, 100.2]
+Total Training steps so far:  1548
+Pacman died! Score: 9
+Testing at 90 [34.0, 37.0, 9.0, 21.0, -11.0, 9.0, 29.0, 75.0, 103.0, 27.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: -2
+Pacman died! Score: 13
+Pacman died! Score: 29
+Testing at 93 [49.0, 9.0, -11.0, 271.0, 57.0, 19.0, 11.0, 158.0, 63.0, 21.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 58
+Pacman died! Score: 29
+Pacman died! Score: 161
+Testing at 96 [31.0, 9.0, 283.0, 331.0, 49.0, 116.0, 41.0, 25.0, 322.0, 9.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 399
+Pacman died! Score: 59
+Pacman died! Score: 358
+Reinforcement Learning Status:
+	Completed 100 out of 2000 training episodes
+	Average Rewards over all training: 61.45
+	Average Rewards for last 10 episodes: 111.30
+	Episode took 13.67 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6, 100.2, 111.3]
+Total Training steps so far:  1845
+Testing at 99 [5.0, 19.0, 251.0, 81.0, 362.0, 30.0, 89.0, 39.0, 48.0, 84.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 38
+Pacman died! Score: 5
+Pacman died! Score: 84
+Testing at 102 [13.0, 95.0, 246.0, 9.0, 69.0, 6.0, 365.0, 429.0, 329.0, 148.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 182
+Pacman died! Score: 103
+Pacman died! Score: 101
+Testing at 105 [41.0, 0.0, 49.0, 23.0, 39.0, 259.0, 130.0, 71.0, 355.0, 81.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 40
+Pacman died! Score: 203
+Pacman died! Score: 231
+Testing at 108 [9.0, 21.0, 31.0, 265.0, 273.0, 9.0, 284.0, 6.0, 1.0, 319.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 9
+Reinforcement Learning Status:
+	Completed 110 out of 2000 training episodes
+	Average Rewards over all training: 64.92
+	Average Rewards for last 10 episodes: 99.60
+	Episode took 17.70 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6, 100.2, 111.3, 99.6]
+Total Training steps so far:  2139
+Pacman died! Score: 317
+Pacman died! Score: 49
+Testing at 111 [281.0, 47.0, 96.0, 34.0, 77.0, 409.0, 39.0, 168.0, 83.0, 63.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 9
+Pacman died! Score: 31
+Pacman died! Score: 78
+Testing at 114 [80.0, 127.0, 399.0, 59.0, 109.0, 49.0, 29.0, 39.0, -3.0, 22.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 69
+Pacman died! Score: 34
+Pacman died! Score: 183
+Testing at 117 [232.0, 30.0, 30.0, 277.0, 233.0, 25.0, 201.0, 260.0, 17.0, 111.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 187
+Pacman died! Score: 309
+Reinforcement Learning Status:
+	Completed 120 out of 2000 training episodes
+	Average Rewards over all training: 70.06
+	Average Rewards for last 10 episodes: 126.60
+	Episode took 13.19 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6, 100.2, 111.3, 99.6, 126.6]
+Total Training steps so far:  2393
+Pacman died! Score: 300
+Testing at 120 [173.0, 38.0, 184.0, 195.0, 57.0, 162.0, 11.0, 40.0, -10.0, 25.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 447
+Pacman died! Score: 19
+Pacman died! Score: -2
+Testing at 123 [38.0, 338.0, 68.0, 99.0, 19.0, 104.0, 69.0, 412.0, 69.0, 131.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5, 134.7]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 251
+Pacman died! Score: 37
+Pacman died! Score: 80
+Testing at 126 [197.0, 111.0, 39.0, 93.0, 9.0, 205.0, 355.0, 186.0, -2.0, 385.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5, 134.7, 157.8]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 460
+Pacman died! Score: 6
+Pacman died! Score: 52
+Reinforcement Learning Status:
+	Completed 130 out of 2000 training episodes
+	Average Rewards over all training: 77.36
+	Average Rewards for last 10 episodes: 165.00
+	Episode took 15.96 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6, 100.2, 111.3, 99.6, 126.6, 165.0]
+Total Training steps so far:  2763
+Testing at 129 [-6.0, 474.0, 9.0, 100.0, 9.0, 78.0, 26.0, 58.0, 331.0, 351.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5, 134.7, 157.8, 143.0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 61
+Pacman died! Score: 81
+Pacman died! Score: 21
+Testing at 132 [20.0, 149.0, 29.0, 317.0, 125.0, -10.0, 9.0, 391.0, 39.0, 73.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5, 134.7, 157.8, 143.0, 114.2]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 39
+Pacman died! Score: 374
+Pacman died! Score: 55
+Testing at 135 [381.0, 150.0, 397.0, 29.0, 409.0, 10.0, 121.0, 91.0, 246.0, 27.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5, 134.7, 157.8, 143.0, 114.2, 186.1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 25
+Pacman died! Score: 29
+Pacman died! Score: 341
+Testing at 138 [69.0, 409.0, 37.0, 44.0, -1.0, 40.0, 274.0, 10.0, 42.0, 207.0] Won 0
+[8.7, 6.1, 41.1, 66.5, 55.2, 85.0, 24.1, 75.9, 36.3, 34.1, 77.4, 45.1, 69.2, 78.2, 84.5, 77.3, 57.1, 71.0, 106.8, 109.8, 88.3, 80.1, 93.9, 96.0, 79.7, 72.5, 71.9, 61.6, 91.2, 33.3, 64.7, 121.6, 100.8, 170.9, 104.8, 121.8, 129.7, 91.0, 141.6, 87.5, 134.7, 157.8, 143.0, 114.2, 186.1, 113.1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Pacman died! Score: 88
+Reinforcement Learning Status:
+	Completed 140 out of 2000 training episodes
+	Average Rewards over all training: 79.79
+	Average Rewards for last 10 episodes: 111.40
+	Episode took 18.31 seconds
+Training:  [19.9, 33.8, 43.7, 46.3, 91.0, 30.8, 47.9, 89.6, 100.2, 111.3, 99.6, 126.6, 165.0, 111.4]
+Total Training steps so far:  3049
+Pacman died! Score: 29
+Pacman died! Score: 48
+slurmstepd: error: *** JOB 406672 ON gnode55 CANCELLED AT 2021-06-06T18:19:54 ***
