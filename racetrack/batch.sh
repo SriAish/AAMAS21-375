@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -A research
-#SBATCH --cpus-per-gpu=5
+#SBATCH --cpus-per-gpu=20
 #SBATCH --gres=gpu:1
 #SBATCH --mem-per-cpu=2048
 #SBATCH -t 4-00:00:00

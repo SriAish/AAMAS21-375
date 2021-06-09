@@ -25,8 +25,9 @@ env = Environment(layout)
 '''
 Choose you agent here.
 '''
-# agent = HierarchicalDDPGAgent(layout = layout, trialNum = TRIAL_NUM)
-agent = DQNBaselineAgent(layout = layout)
+agent = HierarchicalDDPGAgent(layout = layout, trialNum = TRIAL_NUM)
+# agent = HierarchicalDDPGAgentAdv(layout = layout, trialNum = TRIAL_NUM)
+# agent = DQNBaselineAgent(layout = layout)
 #agent = GmQAgent(layout = layout, trialNum = TRIAL_NUM)
 # agent = TestingAgent(layout = layout)
 # agent = CollisionAgent(layout = layout)

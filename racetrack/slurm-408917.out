@@ -1,0 +1,8 @@
+==========================================
+SLURM_JOB_ID = 408917
+SLURM_NODELIST = gnode24
+SLURM_JOB_GPUS = 0
+==========================================
+/var/spool/slurmd/job408917/slurm_script: line 9: /home/sriaish/keras/bin/activate: No such file or directory
+/home/sriaish/.local/lib/python2.7/site-packages/requests/__init__.py:83: RequestsDependencyWarning: Old version of cryptography ([1, 2, 3]) may cause slowdown.
+  warnings.warn(warning, RequestsDependencyWarning)
